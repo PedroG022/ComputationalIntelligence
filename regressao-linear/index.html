@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>Interface Regressão Linear</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Interface Regressão Linear</h1>
+        <h3 class="text-center">Previsão de performance</h3>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Horas de estudo" type="number" name="Horas de Estudo"
+                        id="study_hours">
+                    <input class="form-control" placeholder="Nota anterior" type="number" name="Nota anterior"
+                        id="previous_score">
+                    <input class="form-control" placeholder="Horas de sono" type="number" name="Horas de sono"
+                        id="sleep_hours">
+                    <input class="form-control" placeholder="Questões praticadas" type="number"
+                        name="Questões praticadas" id="practiced_questions">
+                    <button class="btn btn-primary btn-block" onclick="calcular()">Calcular</button>
+                </div>
+            </div>
+        </div>
+        <h3 class="text-center" id="result">Resultado</h3>
+    </div>
+</body>
+
+<script>
+    function calcular(){
+        study_hours = document.getElementById("study_hours").value;
+        previous_score = document.getElementById("previous_score").value;
+        sleep_hours = document.getElementById("sleep_hours").value;
+        practiced_questions = document.getElementById("practiced_questions").value;
+
+        resultado = -34 + (2.85 * study_hours) + (1.02 * previous_score) + (0.48 * sleep_hours) + (0.19 * practiced_questions)
+
+
+        document.getElementById("result").innerHTML = "Previsão da performance: "+resultado+".";
+    }
+</script>
+
+</html>
